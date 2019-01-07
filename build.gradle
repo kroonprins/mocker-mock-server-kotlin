@@ -16,6 +16,11 @@ version '0.0.1'
 //mainClassName = "io.ktor.server.netty.EngineMain"
 mainClassName = "kroonprins.mocker.ApplicationKt"
 
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
 
 sourceSets {
     main.kotlin.srcDirs = main.java.srcDirs = ['src']
@@ -40,4 +45,7 @@ dependencies {
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.+"
     compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.9.8"
     compile "com.github.shyiko.klob:klob:0.2.1"
+    compile "io.github.microutils:kotlin-logging:1.6.22"
+
+    compile "com.hubspot.jinjava:jinjava:2.4.12"
 }
